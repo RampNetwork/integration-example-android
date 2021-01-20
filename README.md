@@ -5,16 +5,16 @@ If you have an Android app built with Kotlin, here's a tutorial on how to add Ra
 
 Remember to check out our full documentation at [https://docs.ramp.network/](https://docs.ramp.network/).
 
-## What we need to do
-- compose URL for Ramp widget with parameters of your choice
-- create intent and send it to system to handle it
-- prepare app for handle return intent after successful purchase
+## What do we need to do?
+- compose a URL for the Ramp widget with parameters of your choice
+- create an intent and send it to the system to handle it
+- prepare the app for handle a  return intent after a successful purchase
 
 ## In detail
 
 ### Composing widget URL
 
-Our Ramp widget allows you to provide some parameters before displaying it, so the user doesn't have to type or copy-paste information. You can set such options as wallet address, cryptocurrency and crypto amount, etc. In order to do so, we need to create a URL with proper query parameters as showcased in the snippet below. You can find the description of all available parameters in our [documentation](https://docs.ramp.network/configuration/).
+The Ramp widget allows you to provide some parameters before displaying it, so the user doesn't have to type or copy-paste information. You can set options such as wallet address, cryptocurrency and crypto amount, etc. In order to do so, we need to create a URL with proper query parameters as showcased in the snippet below. You can find the description of all available parameters in our [documentation](https://docs.ramp.network/configuration/).
 
 ```kotlin
     private fun composeUrl(): String {
@@ -34,7 +34,7 @@ Our Ramp widget allows you to provide some parameters before displaying it, so t
 
 ### Create an intent and send it
 
-In order to open Ramp in a browser, we need to create an intent with the action parameter set to `Intent.ACTION_VIEW` and add previously created URL as `data`. Then, we'll start an activity with this intent. From now on, the system will handle it on its own and it'll open the browser with our URL loaded.
+In order to open Ramp in a browser, we need to create an intent with the action parameter set to `Intent.ACTION_VIEW` and add the previously created URL as `data`. Then, we'll start an activity with this intent. From now on, the system will handle it on its own and it'll open the browser with our URL loaded.
 
 ```kotlin
  val intent = Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(composeUrl()) }
@@ -81,7 +81,7 @@ To prevent multiple instances, add `singleTask` value in the `launchMode` attrib
 
 #### Step 3 - Handle final callback in your activity
 
-Now it's time to handle the URL callback inside your app by implementing the `override fun onNewIntent(intent: Intent)` method in your `Activity` just like in the snippets below.
+Now it's time to handle the URL callback inside your app by overriding the `onNewIntent` method in your `Activity` just like in the snippets below.
 
 ```kotlin
 override fun onNewIntent(intent: Intent) {
@@ -96,7 +96,7 @@ private fun processIntent(intent: Intent) {
     }
 }
 ```
-Now we need to ensure that incoming intents will be processed properly in the `onCreate` method by using `processIntent(it)` in case our activity is killed or newly created.
+We also need to ensure that incoming intents will be processed properly in the `onCreate` method by using `processIntent(it)` in case our activity was killed or is newly created.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {

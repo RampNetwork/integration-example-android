@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * TODO() Fill parameters below with your values
      */
-    private val rampHost = "ri-widget-staging.firebaseapp.com"
+    private val rampHost = "buy.ramp.network"
     private val hostApiKey = "YOUR VALUE"
     private val userAddress = "YOUR VALUE"
     private val hostAppName = "YOUR VALUE"
@@ -61,8 +61,3 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "KUDOS! Purchase complete.", Toast.LENGTH_LONG).show()
     }
 }
-
-
-
-
-
