@@ -32,6 +32,23 @@ The Ramp widget allows you to provide some parameters before displaying it, so t
     }
 ```
 
+You also need to declare values for these parameters in your activity class.
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    /**
+     * TODO() Fill parameters below with your values
+     */
+    private val rampHost = "buy.ramp.network"
+    private val hostApiKey = "YOUR VALUE"
+    private val userAddress = "YOUR VALUE"
+    private val hostAppName = "YOUR VALUE"
+    private val hostLogoUrl = "YOUR VALUE"
+    private val finalUrl = "ramp-example://ramp.purchase.complete"
+    private val swapAsset = "YOUR VALUE"
+```
+
 ### Create an intent and send it
 
 In order to open Ramp in a browser, we need to create an intent with the action parameter set to `Intent.ACTION_VIEW` and add the previously created URL as `data`. Then, we'll start an activity with this intent. From now on, the system will handle it on its own and it'll open the browser with our URL loaded.
