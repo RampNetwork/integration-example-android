@@ -1,7 +1,7 @@
 
 # Ramp Android integration tutorial
 
-If you have an Android app built with Kotlin, here's a tutorial on how to add Ramp to it in just a few steps.
+If you have an Android app built with Kotlin, here's a sample repository showing how to add Ramp to it in just a few steps.
 
 ## What do we need to do?
 - compose a URL for the Ramp widget with parameters of your choice
