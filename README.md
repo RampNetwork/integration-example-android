@@ -96,7 +96,7 @@ private fun processIntent(intent: Intent) {
     }
 }
 ```
-Now we need to ensure that incoming intents will be processed properly in the `onCreate` method by using `processIntent(it)`.
+Now we need to ensure that incoming intents will be processed properly in the `onCreate` method by using `processIntent(it)` in case our activity is killed or newly created.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
