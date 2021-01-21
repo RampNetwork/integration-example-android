@@ -10,15 +10,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     /**
-     * TODO() Fill parameters below with your values
+     * Define parameters according to your needs.
+     * See [documentation](https://docs.ramp.network/configuration/)
      */
-    private val rampHost = "buy.ramp.network"
-    private val hostApiKey = "YOUR VALUE"
-    private val userAddress = "YOUR VALUE"
-    private val hostAppName = "YOUR VALUE"
-    private val hostLogoUrl = "YOUR VALUE"
+    private val userAddress = "1F1tAaz5x1HUXrsNLbtMDqcw6o5GNn4xqX"  // wallet address
+    private val swapAsset = "BTC" // parameter that sets available crypto assets
+    private val fiatCurrency = "EUR" // fiat  currency
+    private val fiatValue = "1000" // total fiat value of the purchase that will be suggested to the user
     private val finalUrl = "ramp-example://ramp.purchase.complete"
-    private val swapAsset = "YOUR VALUE"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,12 +38,11 @@ class MainActivity : AppCompatActivity() {
     private fun composeUrl(): String {
         return Uri.Builder()
             .scheme("https")
-            .authority(rampHost)
+            .authority("buy.ramp.network")
             .appendQueryParameter("swapAsset", swapAsset)
             .appendQueryParameter("userAddress", userAddress)
-            .appendQueryParameter("hostApiKey", hostApiKey)
-            .appendQueryParameter("hostAppName", hostAppName)
-            .appendQueryParameter("hostLogoUrl", hostLogoUrl)
+            .appendQueryParameter("fiatCurrency", fiatCurrency)
+            .appendQueryParameter("fiatValue", fiatValue)
             .appendQueryParameter("finalUrl", finalUrl)
             .build()
             .toString()
